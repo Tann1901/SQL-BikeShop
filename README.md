@@ -269,6 +269,6 @@ SELECT
   ON Top10.ProductID = Inv.ProductID 
 ```
 # RESULT SNAPSHOT
-<img src="[https://user-images.githubusercontent.com/link-to-your-image.png](https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Customer%20based%20on%20Sales%20and%20Order%20Count.jpg)" width="200" />
+[<img src="[./assets/sql.svg](https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Customer%20based%20on%20Sales%20and%20Order%20Count.jpg)" width="50" />](./link/to/sql/file)
 
 
