@@ -1,6 +1,3 @@
-# sql_sample
-Collection of SQL practices
-
 # OVERVIEW
 ## BIKE SHOP RECORD
 Process data based on:
