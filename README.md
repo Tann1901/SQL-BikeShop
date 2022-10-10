@@ -269,4 +269,4 @@ SELECT
   ON Top10.ProductID = Inv.ProductID 
 ```
 # RESULT SNAPSHOT
-![This is an image](https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Customer%20based%20on%20Sales%20and%20Order%20Count.jpg)
+![](https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png | width=100)
