@@ -269,6 +269,6 @@ SELECT
   ON Top10.ProductID = Inv.ProductID 
 ```
 # RESULT SNAPSHOT
-/Tann1901/sql_sample/images/Top 10 Customer based on Sales and Order Count.jpg
-
+[/Tann1901/sql_sample/images/Top 10 Customer based on Sales and Order Count.jpg
+](https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Customer%20based%20on%20Sales%20and%20Order%20Count.jpg)
 
