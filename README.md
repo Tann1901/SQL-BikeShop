@@ -186,35 +186,46 @@ CREATE TABLE    InventoryBalance
     )
 ```
 
-# FINAL REPORT
-1. Extract Top 10 Products Purchased by Order Value
-```   
-   SELECT TOP (10)ProductID,
-        SUM(OrderQuantity)  AS  OrderQuantity,
-        SUM(TotalCost)      AS  TotalCost
-    FROM    PODetails   
-    GROUP BY ProductID   
-    ORDER BY TotalCost DESC
- ```   
-2. Extract Top 10 Vendors by Purchased Order Amount
- ```   
-    SELECT TOP (10)VendorID,
-        SUM(POQuantity) AS  POQuantity,
-        SUM(POTotalCost)AS  POTotalCost
-    FROM    POListing
-    GROUP BY    VendorID
-    ORDER BY    POTotalCost DESC
+# FINAL REPORT aAND RESULT SNAPSHOT
+1. Extract Top 10 Products Purchased by Value and by Quantity
 ```
-3. Top 10 Customer by Sales Amount
-```   
-   SELECT TOP (10)CustomerID,
-        SUM(SalesOrderQuantity) AS  SalesOrderQuantity,
-        SUM(SalesAmount)AS  SalesAmount
-    FROM    SalesOrder
-    GROUP BY CustomerID
-    ORDER BY    SalesAmount DESC
+SELECT TOP (10) ProductID,
+	SUM(OrderQuantity) AS OrderQuantity,
+	SUM(TotalCost) AS TotalCost
+FROM
+	PODetails
+GROUP BY 
+	ProductID
+ORDER BY TotalCost DESC
 ```
-4. Products Sold by Quantity and Amount per Category
+<img src="https://user-images.githubusercontent.com/16319829/81180309-2b51f000-8fee-11ea-8a78-ddfe8c3412a7.png" width="150" height="280">
+2. Extract Top 10 Customer based on Sales and Order Count
+ ```   
+    SELECT TOP (10) CustomerID,
+	SUM(SalesOrderQuantity) AS SalesOrderQuantity,
+	SUM(SalesAmount) AS SalesAmount
+FROM
+	SalesOrder
+GROUP BY 
+	CustomerID
+ORDER BY SalesAmount DESC
+```
+<img src="https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Customer%20based%20on%20Sales%20and%20Order%20Count.jpg" width="150" height="280">
+
+3. Extract Top 10 Vendors by PO amount
+```   
+   SELECT TOP (10) VendorID,
+	SUM(POQuantity) AS POQuantity,
+	SUM(POTotalCost) AS POTotalCost
+FROM
+	POListing
+GROUP BY 
+	VendorID
+ORDER BY POTotalCost DESC
+```
+<img src="https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Vendors%20by%20PO%20amount.jpg" width="150" height="280">
+
+4. Extract Products Sold by Quantity and Amount per Category
 ```   
    SELECT
         ProductCategory.ProductCategoryName,
@@ -238,7 +249,9 @@ CREATE TABLE    InventoryBalance
     ProductCategory.ProductCategoryName
     ORDER BY SalesAmount DESC
 ```
-5. Count of Customers by Age bracket
+<img src="https://github.com/Tann1901/sql_sample/blob/main/Products%20Sold%20by%20Quantity%20and%20Amount%20per%20Category.jpg" height="280">
+
+5. Extract Count of Customers by Age bracket
 ```
 SELECT
 COUNT(CASE WHEN DATEDIFF(YEAR,BirthDate,GETDATE())BETWEEN 18 AND 30 THEN 1 END)AS'Customer Count (Ages 18 -30)',
@@ -248,25 +261,4 @@ COUNT(CASE WHEN DATEDIFF(YEAR,BirthDate,GETDATE())BETWEEN 51 AND 60 THEN 1 END)A
 COUNT(CASE WHEN DATEDIFF(YEAR,BirthDate,GETDATE())>60 THEN 1 END)AS'Customer Count (Ages above 60)'
 FROM Customer;
 ```
-6. Create a New Table with Top 10 Inventory by Value
-```
-SELECT 
-TOP(10)ProductID,UnitPrice,UnitsBalance,[UnitPrice]*[UnitsBalance] 
-AS 'Total Inventory Value'
-INTO Top_10_InvFrom[dbo].[InventoryBalance]WhereInventoryDate='2021-06-30'
-ORDER BY [UnitPrice]*[UnitsBalance] DESC
-```
-7. Top 10 Inventory by Value at a Specific Date
-```
-SELECT  
-  TOP10.[ProductID], 
-  TOP10.[UnitsBalance] AS 'Units Balance', 
-  TOP10.[TotalInventoryValue], 
-  inv.Productname AS 'Product Name' 
-  FROM [dbo].[Top_10_Inv] Top10   
-  LEFT OUTER JOIN
-  [dbo].[Inventory] Inv 
-  ON Top10.ProductID = Inv.ProductID 
-```
-# RESULT SNAPSHOT
-<img src="https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Products%20Purchased%20by%20Value%20and%20by%20Quantity.jpg" width=50% height=50%>
+<img src="https://github.com/Tann1901/sql_sample/blob/main/Count%20of%20Customers%20per%20Age%20Bracket.jpg" width="150" height="280">
