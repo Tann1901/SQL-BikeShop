@@ -269,7 +269,4 @@ SELECT
   ON Top10.ProductID = Inv.ProductID 
 ```
 # RESULT SNAPSHOT
-[/Tann1901/sql_sample/images/Top 10 Customer based on Sales and Order Count.jpg
-](https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Customer%20based%20on%20Sales%20and%20Order%20Count.jpg)
-[/Tann1901/sql_sample/images/Top 10 Products Purchased by Value and by Quantity.jpg
-https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Products%20Purchased%20by%20Value%20and%20by%20Quantity.jpg
+<img src="[https://user-images.githubusercontent.com/16319829/81180309-2b51f000-8fee-11ea-8a78-ddfe8c3412a7.png](https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Products%20Purchased%20by%20Value%20and%20by%20Quantity.jpg)" width=50% height=50%>
