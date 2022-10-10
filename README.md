@@ -198,7 +198,7 @@ GROUP BY
 	ProductID
 ORDER BY TotalCost DESC
 ```
-<img src="https://user-images.githubusercontent.com/16319829/81180309-2b51f000-8fee-11ea-8a78-ddfe8c3412a7.png" width="150" height="280">
+<img src="https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Products%20Purchased%20by%20Value%20and%20by%20Quantity.jpg" height="280">
 2. Extract Top 10 Customer based on Sales and Order Count
  ```   
     SELECT TOP (10) CustomerID,
@@ -210,7 +210,7 @@ GROUP BY
 	CustomerID
 ORDER BY SalesAmount DESC
 ```
-<img src="https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Customer%20based%20on%20Sales%20and%20Order%20Count.jpg" width="150" height="280">
+<img src="https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Customer%20based%20on%20Sales%20and%20Order%20Count.jpg" height="280">
 
 3. Extract Top 10 Vendors by PO amount
 ```   
@@ -223,7 +223,7 @@ GROUP BY
 	VendorID
 ORDER BY POTotalCost DESC
 ```
-<img src="https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Vendors%20by%20PO%20amount.jpg" width="150" height="280">
+<img src="https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Vendors%20by%20PO%20amount.jpg" height="280">
 
 4. Extract Products Sold by Quantity and Amount per Category
 ```   
@@ -261,4 +261,4 @@ COUNT(CASE WHEN DATEDIFF(YEAR,BirthDate,GETDATE())BETWEEN 51 AND 60 THEN 1 END)A
 COUNT(CASE WHEN DATEDIFF(YEAR,BirthDate,GETDATE())>60 THEN 1 END)AS'Customer Count (Ages above 60)'
 FROM Customer;
 ```
-<img src="https://github.com/Tann1901/sql_sample/blob/main/Count%20of%20Customers%20per%20Age%20Bracket.jpg" width="150" height="280">
+<img src="https://github.com/Tann1901/sql_sample/blob/main/Count%20of%20Customers%20per%20Age%20Bracket.jpg" height="280">
