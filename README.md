@@ -42,6 +42,7 @@ CREATE TABLE Customer
     )
 ```
 II. SalesOrder
+```
 CREATE TABLE SalesOrder
     (
     SalesOrderID        varchar(10)             NOTNULL,
@@ -54,16 +55,18 @@ CREATE TABLE SalesOrder
     CustomerID          varchar(10),
     CONSTRAINT SalesOrder_SalesOrderID_PK PRIMARY KEY (SalesOrderID),CONSTRAINT SalesOrder_CustomerID_FK FOREIGN KEY (CustomerID) REFERENCES Customer,
     )
-
+```
 III. Product Category
+```
 CREATE TABLE ProductCategory
     (
     ProductCategoryID   varchar(10)        NOTNULL,
     ProductCategoryName varchar(50)        NOTNULL,
     CONSTRAINT ProductCategory_ProductCategoryID_PK PRIMARY KEY (ProductCategoryID)
     )
-
+```
 IV. Product SubCategory
+```
 CREATE TABLE ProductSubCategory
     (
     ProductSubCategoryID    varchar(10)      NOTNULL,
@@ -73,8 +76,9 @@ CREATE TABLE ProductSubCategory
     CONSTRAINT ProductSubCategory_ProductCategoryID_FK FOREIGN KEY (ProductCategoryID)
     REFERENCES ProductCategory
     )
-
+```
 V. Inventory Master
+```
 CREATE TABLE InventoryMaster
     (
     ProductID               varchar(10)   NOTNULL,
@@ -89,8 +93,9 @@ CREATE TABLE InventoryMaster
     CONSTRAINT InventoryMaster_ProductSubCategoryID_FK FOREIGNKEY (ProductSubCategoryID)
     REFERENCES  ProductSubCategory
     )
-
+```
 VI. Sales Order Details
+```
 CREATE TABLE SalesOrderDetails
     (
     SalesOrderID            varchar(10)     NOTNULL,
@@ -102,8 +107,9 @@ CREATE TABLE SalesOrderDetails
     CONSTRAINT  SalesOrderDetails_SalesOrderID_FK FOREIGN KEY (SalesOrderID)
     REFERENCES  SalesOrder,CONSTRAINTSalesOrderDetails_ProductID_FK FOREIGN KEY (ProductID) REFERENCES  InventoryMaster,
     )
-
+```
 VII. Vendor
+```
 CREATE TABLE Vendor
     (
     VendorID            varchar(10)     NOTNULL,
@@ -117,8 +123,9 @@ CREATE TABLE Vendor
     ContactPerson           varchar(50) NOTNULL,
     CONSTAINT Vendor_VendorID_PK PRIMARY KEY (VendorID)
     )
-
+```
 VIII. PO Listing
+```
 CREATE TABLE POListing
     (
     POID            varchar(10)     NOTNULL,
@@ -132,8 +139,9 @@ CREATE TABLE POListing
     CONSTRAINT POListing_VendorID_FK FOREIGN KEY (VendorID)
     REFERENCES  Vendor
     )
-
+```
 IX. PO Details
+```
 CREATE TABLE PODetails
     (
     POID            varchar(10)     NOTNULL,
@@ -147,8 +155,9 @@ CREATE TABLE PODetails
     CONSTRAINT  PODetails_ProductID_FK FOREIGNKEY (ProductID)
     REFERENCES InventoryMaster,
     )
-
+```
 X. Inventory Balance Date
+```
 CREATE  TABLE   InventoryBalanceDate
     (
     InventoryDate       date        NOTNULL,
@@ -156,8 +165,9 @@ CREATE  TABLE   InventoryBalanceDate
     InventoryYear       char(5)     NOTNULL,
     CONSTRAINT  InventoryBalanceDate_InventoryDate_PK PRIMARY KEY(InventoryDate),
     )
-
+```
 XI. Inventory Balance
+```
 CREATE TABLE    InventoryBalance
     (
     ProductID           varchar(10)     NOTNULL,
@@ -170,35 +180,39 @@ CREATE TABLE    InventoryBalance
     CONSTRAINT  InventoryBalance_ProductID_FK FOREIGN KEY (ProductID)REFERENCES InventoryMaster,
     CONSTRAINT  InventoryBalance_InventoryDate_FK FOREIGN KEY (InventoryDate) REFERENCES InventoryBalanceDate
     )
-
+```
 
 # FINAL REPORT
 1. Extract Top 10 Products Purchased by Order Value
-    SELECT TOP (10)ProductID,
+```   
+   SELECT TOP (10)ProductID,
         SUM(OrderQuantity)  AS  OrderQuantity,
         SUM(TotalCost)      AS  TotalCost
     FROM    PODetails   
     GROUP BY ProductID   
     ORDER BY TotalCost DESC
-    
+ ```   
 2. Extract Top 10 Vendors by Purchased Order Amount
+ ```   
     SELECT TOP (10)VendorID,
         SUM(POQuantity) AS  POQuantity,
         SUM(POTotalCost)AS  POTotalCost
     FROM    POListing
     GROUP BY    VendorID
     ORDER BY    POTotalCost DESC
-
+```
 3. Top 10 Customer by Sales Amount
-    SELECT TOP (10)CustomerID,
+```   
+   SELECT TOP (10)CustomerID,
         SUM(SalesOrderQuantity) AS  SalesOrderQuantity,
         SUM(SalesAmount)AS  SalesAmount
     FROM    SalesOrder
     GROUP BY CustomerID
     ORDER BY    SalesAmount DESC
-
+```
 4. Products Sold by Quantity and Amount per Category
-    SELECT
+```   
+   SELECT
         ProductCategory.ProductCategoryName,
         SUM(OrderQuantity)  AS  OrderQuantity,
         SUM(UnitPrice*OrderQuantity)    AS  SalesAmount 
@@ -219,8 +233,9 @@ CREATE TABLE    InventoryBalance
     GROUP BY 
     ProductCategory.ProductCategoryName
     ORDER BY SalesAmount DESC
-
+```
 5. Count of Customers by Age bracket
+```
 SELECT
 COUNT(CASE WHEN DATEDIFF(YEAR,BirthDate,GETDATE())BETWEEN 18 AND 30 THEN 1 END)AS'Customer Count (Ages 18 -30)',
 COUNT(CASE WHEN DATEDIFF(YEAR,BirthDate,GETDATE())BETWEEN 31 AND 40 THEN 1 END)AS'Customer Count (Ages 31 -40)',
@@ -228,15 +243,17 @@ COUNT(CASE WHEN DATEDIFF(YEAR,BirthDate,GETDATE())BETWEEN 41 AND 50 THEN 1 END)A
 COUNT(CASE WHEN DATEDIFF(YEAR,BirthDate,GETDATE())BETWEEN 51 AND 60 THEN 1 END)AS'Customer Count (Ages 51 -60)',
 COUNT(CASE WHEN DATEDIFF(YEAR,BirthDate,GETDATE())>60 THEN 1 END)AS'Customer Count (Ages above 60)'
 FROM Customer;
-
+```
 6. Create a New Table with Top 10 Inventory by Value
+```
 SELECT 
 TOP(10)ProductID,UnitPrice,UnitsBalance,[UnitPrice]*[UnitsBalance] 
 AS 'Total Inventory Value'
 INTO Top_10_InvFrom[dbo].[InventoryBalance]WhereInventoryDate='2021-06-30'
 ORDER BY [UnitPrice]*[UnitsBalance] DESC
-
+```
 7. Top 10 Inventory by Value at a Specific Date
+```
 SELECT  
   TOP10.[ProductID], 
   TOP10.[UnitsBalance] AS 'Units Balance', 
@@ -246,5 +263,5 @@ SELECT
   LEFT OUTER JOIN
   [dbo].[Inventory] Inv 
   ON Top10.ProductID = Inv.ProductID 
-
+```
 # RESULT SNAPSHOT
