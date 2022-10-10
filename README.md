@@ -271,4 +271,5 @@ SELECT
 # RESULT SNAPSHOT
 [/Tann1901/sql_sample/images/Top 10 Customer based on Sales and Order Count.jpg
 ](https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Customer%20based%20on%20Sales%20and%20Order%20Count.jpg)
-https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Customer%20based%20on%20SalesAmount%20and%20Order%20Count.jpg
+[/Tann1901/sql_sample/images/Top 10 Products Purchased by Value and by Quantity.jpg
+https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Products%20Purchased%20by%20Value%20and%20by%20Quantity.jpg
