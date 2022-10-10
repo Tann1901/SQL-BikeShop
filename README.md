@@ -186,7 +186,7 @@ CREATE TABLE    InventoryBalance
     )
 ```
 
-# FINAL REPORT aAND RESULT SNAPSHOT
+# FINAL REPORT & RESULT SNAPSHOT
 1. Extract Top 10 Products Purchased by Value and by Quantity
 ```
 SELECT TOP (10) ProductID,
