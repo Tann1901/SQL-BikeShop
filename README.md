@@ -14,13 +14,13 @@ Get to learn a vision over small/medium size business and SQL practices.
 # DATASET
 Based on actual data set found and modified for practice purpose.
 The dataset include different sheets including:
--Customer
--Category
--Sales Order
--Vendor
--POListing
--PO Details
--Geography
+- Customer
+- Category
+- Sales Order
+- Vendor
+- POListing
+- PO Details
+- Geography
 We extract, transform and load to SQL Database and comes up with analytics.
 
 # DATA PROCESSING
