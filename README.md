@@ -27,6 +27,7 @@ We extract, transform and load to SQL Database and comes up with analytics.
 Create Tables in SQL including Constraintsand Loading Dummy Data
 
 I. Customer
+```
 CREATE TABLE Customer
     (
     CustomerIDvarchar(10)               NOTNULL,
@@ -39,7 +40,7 @@ CREATE TABLE Customer
     DatePurchasedate                    NOTNULL,
     CONSTRAINT Customer_CustomerID_PK PRIMARYKEY (CustomerID)
     )
-
+```
 II. SalesOrder
 CREATE TABLE SalesOrder
     (
