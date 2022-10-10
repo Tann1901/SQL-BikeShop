@@ -3,10 +3,14 @@ Collection of SQL practices
 
 # OVERVIEW
 ## BIKE SHOP RECORD
-Process data based on Customer / Inventory / Sales Order / Vendor information
+Process data based on:
+- Customer 
+- Inventory 
+- Sales Order 
+- Vendor information
 
 # COURTESY 
-This project is a practice in a team including Justine Buenaobra, Alyssa Sangalang, Yazmin Soriano, Annalyn Ruiz and Mahdieh Darehzereshki. 
+This project is a group work including Justine Buenaobra, Alyssa Sangalang, Yazmin Soriano, Annalyn Ruiz and Mahdieh Darehzereshki. 
 
 # TARGET & ACHIEVEMENTS
 Get to learn a vision over small/medium size business and SQL practices.
