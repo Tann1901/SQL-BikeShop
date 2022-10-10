@@ -2,7 +2,7 @@
 Collection of SQL practices
 
 # OVERVIEW
-BIKE SHOP RECORD
+##BIKE SHOP RECORD
 Process data based on Customer / Inventory / Sales Order / Vendor information
 
 # COURTESY 
