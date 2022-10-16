@@ -195,10 +195,11 @@ GROUP BY
 	ProductID
 ORDER BY TotalCost DESC
 ```
-<img src="https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Products%20Purchased%20by%20Value%20and%20by%20Quantity.jpg" height="280">
+<img src="https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Products%20Purchased%20by%20Value%20and%20by%20Quantity.jpg" height="350">
 2. Extract Top 10 Customer based on Sales and Order Count
- ```   
-    SELECT TOP (10) CustomerID,
+
+```   
+SELECT TOP (10) CustomerID,
 	SUM(SalesOrderQuantity) AS SalesOrderQuantity,
 	SUM(SalesAmount) AS SalesAmount
 FROM
@@ -207,7 +208,7 @@ GROUP BY
 	CustomerID
 ORDER BY SalesAmount DESC
 ```
-<img src="https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Customer%20based%20on%20Sales%20and%20Order%20Count.jpg" height="280">
+<img src="https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Customer%20based%20on%20Sales%20and%20Order%20Count.jpg" height="350">
 
 3. Extract Top 10 Vendors by PO amount
 ```   
@@ -220,7 +221,7 @@ GROUP BY
 	VendorID
 ORDER BY POTotalCost DESC
 ```
-<img src="https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Vendors%20by%20PO%20amount.jpg" height="280">
+<img src="https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Vendors%20by%20PO%20amount.jpg" height="350">
 
 4. Extract Products Sold by Quantity and Amount per Category
 ```   
@@ -246,7 +247,7 @@ ORDER BY POTotalCost DESC
     ProductCategory.ProductCategoryName
     ORDER BY SalesAmount DESC
 ```
-<img src="https://github.com/Tann1901/sql_sample/blob/main/Products%20Sold%20by%20Quantity%20and%20Amount%20per%20Category.jpg" height="280">
+<img src="https://github.com/Tann1901/sql_sample/blob/main/Products%20Sold%20by%20Quantity%20and%20Amount%20per%20Category.jpg" height="350">
 
 5. Extract Count of Customers by Age bracket
 ```
@@ -258,4 +259,4 @@ COUNT(CASE WHEN DATEDIFF(YEAR,BirthDate,GETDATE())BETWEEN 51 AND 60 THEN 1 END)A
 COUNT(CASE WHEN DATEDIFF(YEAR,BirthDate,GETDATE())>60 THEN 1 END)AS'Customer Count (Ages above 60)'
 FROM Customer;
 ```
-<img src="https://github.com/Tann1901/sql_sample/blob/main/Count%20of%20Customers%20per%20Age%20Bracket.jpg" height="280">
+<img src="https://github.com/Tann1901/sql_sample/blob/main/Count%20of%20Customers%20per%20Age%20Bracket.jpg" height="350">
