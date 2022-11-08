@@ -27,7 +27,7 @@ We extract, transform and load to SQL Database and comes up with analytics.
 # DATA PROCESSING
 Create Tables in SQL including Constraintsand Loading Dummy Data
 
-I. Customer
+### I. Customer
 ```
 CREATE TABLE Customer
     (
@@ -42,7 +42,7 @@ CREATE TABLE Customer
     CONSTRAINT Customer_CustomerID_PK PRIMARYKEY (CustomerID)
     )
 ```
-II. SalesOrder
+### II. SalesOrder
 ```
 CREATE TABLE SalesOrder
     (
@@ -57,7 +57,7 @@ CREATE TABLE SalesOrder
     CONSTRAINT SalesOrder_SalesOrderID_PK PRIMARY KEY (SalesOrderID),CONSTRAINT SalesOrder_CustomerID_FK FOREIGN KEY (CustomerID) REFERENCES Customer,
     )
 ```
-III. Product Category
+### III. Product Category
 ```
 CREATE TABLE ProductCategory
     (
@@ -66,7 +66,7 @@ CREATE TABLE ProductCategory
     CONSTRAINT ProductCategory_ProductCategoryID_PK PRIMARY KEY (ProductCategoryID)
     )
 ```
-IV. Product SubCategory
+### IV. Product SubCategory
 ```
 CREATE TABLE ProductSubCategory
     (
@@ -78,7 +78,7 @@ CREATE TABLE ProductSubCategory
     REFERENCES ProductCategory
     )
 ```
-V. Inventory Master
+### V. Inventory Master
 ```
 CREATE TABLE InventoryMaster
     (
@@ -95,7 +95,7 @@ CREATE TABLE InventoryMaster
     REFERENCES  ProductSubCategory
     )
 ```
-VI. Sales Order Details
+### VI. Sales Order Details
 ```
 CREATE TABLE SalesOrderDetails
     (
@@ -109,7 +109,7 @@ CREATE TABLE SalesOrderDetails
     REFERENCES  SalesOrder,CONSTRAINTSalesOrderDetails_ProductID_FK FOREIGN KEY (ProductID) REFERENCES  InventoryMaster,
     )
 ```
-VII. Vendor
+### VII. Vendor
 ```
 CREATE TABLE Vendor
     (
@@ -125,7 +125,7 @@ CREATE TABLE Vendor
     CONSTAINT Vendor_VendorID_PK PRIMARY KEY (VendorID)
     )
 ```
-VIII. PO Listing
+### VIII. PO Listing
 ```
 CREATE TABLE POListing
     (
@@ -141,7 +141,7 @@ CREATE TABLE POListing
     REFERENCES  Vendor
     )
 ```
-IX. PO Details
+### IX. PO Details
 ```
 CREATE TABLE PODetails
     (
@@ -157,7 +157,7 @@ CREATE TABLE PODetails
     REFERENCES InventoryMaster,
     )
 ```
-X. Inventory Balance Date
+### X. Inventory Balance Date
 ```
 CREATE  TABLE   InventoryBalanceDate
     (
@@ -167,7 +167,7 @@ CREATE  TABLE   InventoryBalanceDate
     CONSTRAINT  InventoryBalanceDate_InventoryDate_PK PRIMARY KEY(InventoryDate),
     )
 ```
-XI. Inventory Balance
+### XI. Inventory Balance
 ```
 CREATE TABLE    InventoryBalance
     (
@@ -184,7 +184,7 @@ CREATE TABLE    InventoryBalance
 ```
 
 # FINAL REPORT & RESULT SNAPSHOT
-1. Extract Top 10 Products Purchased by Value and by Quantity
+### 1. Extract Top 10 Products Purchased by Value and by Quantity
 ```
 SELECT TOP (10) ProductID,
 	SUM(OrderQuantity) AS OrderQuantity,
@@ -196,7 +196,7 @@ GROUP BY
 ORDER BY TotalCost DESC
 ```
 <img src="https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Products%20Purchased%20by%20Value%20and%20by%20Quantity.jpg" height="400">
-2. Extract Top 10 Customer based on Sales and Order Count
+### 2. Extract Top 10 Customer based on Sales and Order Count
 
 ```   
 SELECT TOP (10) CustomerID,
@@ -210,7 +210,7 @@ ORDER BY SalesAmount DESC
 ```
 <img src="https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Customer%20based%20on%20Sales%20and%20Order%20Count.jpg" height="400">
 
-3. Extract Top 10 Vendors by PO amount
+### 3. Extract Top 10 Vendors by PO amount
 ```   
    SELECT TOP (10) VendorID,
 	SUM(POQuantity) AS POQuantity,
@@ -223,7 +223,7 @@ ORDER BY POTotalCost DESC
 ```
 <img src="https://github.com/Tann1901/sql_sample/blob/main/Top%2010%20Vendors%20by%20PO%20amount.jpg" height="400">
 
-4. Extract Products Sold by Quantity and Amount per Category
+### 4. Extract Products Sold by Quantity and Amount per Category
 ```   
    SELECT
         ProductCategory.ProductCategoryName,
@@ -249,7 +249,7 @@ ORDER BY POTotalCost DESC
 ```
 <img src="https://github.com/Tann1901/sql_sample/blob/main/Products%20Sold%20by%20Quantity%20and%20Amount%20per%20Category.jpg" height="400">
 
-5. Extract Count of Customers by Age bracket
+### 5. Extract Count of Customers by Age bracket
 ```
 SELECT
 COUNT(CASE WHEN DATEDIFF(YEAR,BirthDate,GETDATE())BETWEEN 18 AND 30 THEN 1 END)AS'Customer Count (Ages 18 -30)',
