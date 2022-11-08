@@ -248,8 +248,6 @@ ORDER BY POTotalCost DESC
     ORDER BY SalesAmount DESC
 ```
 <img src="https://github.com/Tann1901/sql_sample/blob/main/Products%20Sold%20by%20Quantity%20and%20Amount%20per%20Category.jpg" height="400">
-<img src="https://github.com/Tann1901/spark-hive-transportation-sales/blob/main/photos/Truck_Train_Plans.jpg" height="400">
-
 
 5. Extract Count of Customers by Age bracket
 ```
